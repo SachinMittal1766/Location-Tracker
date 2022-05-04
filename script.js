@@ -1,4 +1,5 @@
 const button = document.querySelector("button");
+var token = config.MY_API_TOKEN;
 
 button.addEventListener("click", ()=>{
     if(navigator.geolocation){
@@ -12,7 +13,7 @@ button.addEventListener("click", ()=>{
 function onSuccess(position){
     button.innerText = "Detecting your location...";
     let {latitude, longitude} = position.coords;
-    fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=YOUR_API_KEY`)
+    fetch(`https://api.opencagedata.com/geocode/v1/json?q=${latitude}+${longitude}&key=${token}`)
     .then(response => response.json()).then(response =>{
         let allDetails = response.results[0].components;
         console.table(allDetails);
