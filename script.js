@@ -17,8 +17,8 @@ function onSuccess(position){
     .then(response => response.json()).then(response =>{
         let allDetails = response.results[0].components;
         console.table(allDetails);
-        let {county, postcode, country} = allDetails;
-        button.innerText = `${county} ${postcode}, ${country}`;
+        let {county, road, country} = allDetails;
+        button.innerText = `${road}, ${county}, ${country}`;
     }).catch(()=>{
         button.innerText = "Something went wrong";
     });
